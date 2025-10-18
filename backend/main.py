@@ -72,7 +72,7 @@ def login_user(user: UserLogin):
         if existing_user["username"] == user.username and existing_user["password"] == user.password:
             return {"message": "Login successful", "username": user.username}
 
-    # If login fails
+    # If login fails it proceed 
     raise HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Invalid username or password",
