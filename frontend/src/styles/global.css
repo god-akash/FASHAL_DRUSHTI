@@ -1,0 +1,72 @@
+/* In frontend/src/styles/globals.css */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-image: url("https://thumbs.dreamstime.com/b/green-field-potato-crops-row-agricultural-landscape-green-field-potato-crops-row-119261421.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* === Sky and Sun === */
+.sun {
+  position: absolute;
+  top: 50px;
+  right: 80px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #FFEB3B, #FBC02D);
+  border-radius: 50%;
+  animation: floatSun 6s ease-in-out infinite alternate;
+  box-shadow: 0 0 40px #FDD835;
+}
+
+@keyframes floatSun {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(15px); }
+}
+
+/* === Satellite Animation === */
+.satellite {
+  position: absolute;
+  top: 60px;
+  left: -180px;
+  width: 190px;
+  height: 120px;
+  /* Make sure you have a 'satellite.jpg' in your frontend/public folder */
+  background-image: url("/satellite.jpg");
+  z-index: 5;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(15deg);
+  animation: moveSatellite 25s linear infinite;
+  filter: brightness(1.1) contrast(1.05);
+}
+
+@keyframes moveSatellite {
+  0% { transform: translateX(-170px) translateY(0) rotate(15deg); }
+  100% { transform: translateX(110vw) translateY(0) rotate(15deg); }
+}
+
+/* === Scanning Beam === */
+.scan-beam {
+  position: absolute;
+  top: 150px;
+  left: -100px;
+  width: 140px;
+  height: 400px;
+  background: linear-gradient(to bottom, rgba(0, 255, 0, 0.7), rgba(0,255,0,0));
+  border-radius: 50%;
+  filter: blur(3px);
+  animation: moveBeam 25.2s linear infinite;
+  z-index: 3;
+  mix-blend-mode: screen;
+  opacity: 0.8;
+}
+
+@keyframes moveBeam {
+  0% { transform: translateX(-250px); }
+  100% { transform: translateX(110vw); }
+}
